@@ -7,7 +7,7 @@
 #include <time.h>
 
 clock_t t; // clock intialized
-bool intialize = true; //intialize first zombie postion 
+//bool intialize = true; //intialize first zombie postion 
 short winloss; //Win/Loss check
 int ax[300]; //max number of zombie positions
 int ay[300];  
@@ -24,7 +24,7 @@ class GameMap{
 	GameMap();
 	void gotoxy(int,int); // Set pointer Location
 	//void Zmove(); //Zombie movement
-	short ZCheck(int, int); //Zombie movement check
+	//short ZCheck(int, int); //Zombie movement check
 	void MAP();   
 	void Pmove(); //Player movement
 	void ClearScreen();
@@ -37,7 +37,7 @@ class GameMap{
 GameMap::GameMap() { x = 0 ; y = 0; zx ; zy ; check = 2; }//Zombies;}  //intializing all variables in class
 
 
-void GameMap::ClearScreen(){ //function to clear screen, adopted code
+void GameMap::ClearScreen(){ //function to clear screen, adopted code (so far we are keeping entire portion
 
   HANDLE                     hStdOut;
   CONSOLE_SCREEN_BUFFER_INFO csbi;
@@ -73,7 +73,7 @@ void GameMap::ClearScreen(){ //function to clear screen, adopted code
   /* Move the cursor home */
   SetConsoleCursorPosition( hStdOut, homeCoords );	
 	
-}
+}//it ends here 
 
 void GameMap::gotoxy(int x, int y){ // Set pointer Location, adopted code
   
@@ -109,15 +109,15 @@ void GameMap::Hide(){ // Hide curser, adopted code
 	  //		} 
 
 
-short GameMap::ZCheck(int a , int b){  // wall/loss check
+//short GameMap::ZCheck(int a , int b){  // wall/loss check
 	
-     if( a == ZRun.x && b == ZRun.y) //Player position check with zombie position
-         return 1;  // GameOver zombie is over character
-     else if( a == 0 || a == 79 || b == 0 || b >= 23 )
-        return 0;  //Boarder do not move into
-     else
-        return 2; //free to move into		
-}
+ //    if( a == ZRun.x && b == ZRun.y) //Player position check with zombie position
+   //      return 1;  // GameOver zombie is over character
+     //else if( a == 0 || a == 79 || b == 0 || b >= 23 )
+       // return 0;  //Boarder do not move into
+    // else
+      //  return 2; //free to move into		
+//}
 
 void GameMap::MAP(){  //functions that makes the walls on the map
 	 do{ // MAP
@@ -224,11 +224,11 @@ void GameMap::Pmove(){ //player movement
                          --ZRun.x;
                         }
                         
-              for(int r=0; r <= 300; r++){		//checks players movement against all zombie positions
-              	ZRun.check = ZRun.ZCheck(ax[r],ay[r]);	//if player moves into a zombie loss condition is set
-              	if(ZRun.check == 1)
-               	winloss = 2;
-              }       
+             // for(int r=0; r <= 300; r++){		//checks players movement against all zombie positions
+              //	ZRun.check = ZRun.ZCheck(ax[r],ay[r]);	//if player moves into a zombie loss condition is set
+              	//if(ZRun.check == 1)
+               	//winloss = 2;
+             // }       
                         
               }
         
